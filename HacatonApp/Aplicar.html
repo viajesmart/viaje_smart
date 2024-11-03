@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Viaje Smart</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="Inicio.html"><img src="logo.png" alt=""></a></div>
+            <ul class="nav-links">
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="Trabajos.html">Trabajos</a></li>
+                <li><a href="Aplicar.html">Aplicar</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Formulario-->
+
+    <div class="container" style="margin-top: 120px;">
+        <div class="tabs">
+            <button class="tab active" onclick="showForm('basic')">Empleos básicos (Especificados en "Empleos").</button>
+            <button class="tab" onclick="showForm('professional')">Empleos Profesionales (Especificados en "Empleos").</button>
+        </div>
+
+        <div class="form-container">
+            <!-- Formulario Básico -->
+            <form id="basicForm" class="form active">
+                <h2>Formulario de Empleo Básico</h2>
+                
+                <!-- Área de subida de CV -->
+                <div class="file-upload">
+                    <label for="cv-upload-basic">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Haz clic aquí o arrastra tu CV (PDF o imagen)</p>
+                        <input type="file" id="cv-upload-basic" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileSelect(this)">
+                    </label>
+                    <div class="file-info">Formatos permitidos: PDF, JPG, PNG</div>
+                    <div class="file-preview" id="preview-basic"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Nombre Completo</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Correo Electrónico</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Teléfono</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Ciudad o Región</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Disponibilidad Horaria</label>
+                    <select required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="full">Tiempo Completo</option>
+                        <option value="part">Medio Tiempo</option>
+                        <option value="temp">Temporal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Experiencia Relacionada (opcional)</label>
+                    <textarea></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Referencias (opcional)</label>
+                    <textarea></textarea>
+                </div>
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+
+            <!-- Formulario Profesional -->
+            <form id="professionalForm" class="form">
+                <h2>Formulario de Empleo Profesional</h2>
+
+                <!-- Área de subida de CV -->
+                <div class="file-upload">
+                    <label for="cv-upload-prof">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Haz clic aquí o arrastra tu CV (PDF o imagen)</p>
+                        <input type="file" id="cv-upload-prof" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileSelect(this)">
+                    </label>
+                    <div class="file-info">Formatos permitidos: PDF, JPG, PNG</div>
+                    <div class="file-preview" id="preview-prof"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Nombre Completo</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Correo Electrónico</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Teléfono</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Nivel de Educación</label>
+                    <select required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="secondary">Secundaria</option>
+                        <option value="technical">Técnico</option>
+                        <option value="university">Universitario</option>
+                        <option value="postgraduate">Posgrado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="required">Título Obtenido</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Institución Educativa</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Experiencia Laboral Relacionada</label>
+                    <textarea required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="required">Habilidades Técnicas</label>
+                    <textarea required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="required">Referencias Laborales</label>
+                    <textarea required></textarea>
+                </div>
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+
+       <!--Footer-->
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Viaje Smart Logo">
+                    <p>Descubre el mundo de manera inteligente</p>
+                </div>
+                <div class="social-media">
+                    <a href="#" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#destinos">Destinos</a></li>
+                    <li><a href="#paquetes">Paquetes</a></li>
+                    <li><a href="#ofertas">Ofertas especiales</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Destinos populares</h3>
+                <ul>
+                    <li><a href="#playa">El Tunco</a></li>
+                    <li><a href="#montana">El Pital</a></li>
+                    <li><a href="#ciudad">Centro Histórico</a></li>
+                    <li><a href="#lago">Lago de Ilopango</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        San Salvador, El Salvador
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        +503 2222-2222
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        info@viajesmart.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 Viaje Smart. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#privacidad">Política de privacidad</a>
+                <a href="#terminos">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Agregar Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+        <script src="Js.js"></script>
+    </body>
+    </html>
